@@ -12,19 +12,20 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+//**Its tells the class contains beans
 @Configuration
 public class RabbitMqConfig
 {
+    //**Message is pass in queue
     @Value("${jsa.rabbitmq.queue}")
     String queueName;
-
+//exchange the messages
     @Value("${jsa.rabbitmq.exchange}")
     String exchange;
-
+//through the routing messages will transfer
     @Value("${jsa.rabbitmq.routingkey}")
      String routingkey;
-
+//object for queue
     @Bean
     Queue queue() {
         return new Queue(queueName, true);
